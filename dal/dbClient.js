@@ -3,6 +3,7 @@ module.exports = function() {
     var sendDbCommand = function(command){
         const mongoClient = require('mongodb').MongoClient
 
+
         mongoClient.connect(process.env.MONGO_URL, {
             auth: {
             user: process.env.MONGO_USR,
