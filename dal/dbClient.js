@@ -3,11 +3,11 @@ module.exports = function() {
     var sendDbCommand = function(command){
         const mongoClient = require('mongodb').MongoClient
 
-        //todo move connection string to configuration
-        mongoClient.connect('', {
+
+        mongoClient.connect(process.env.MONGO_URL, {
             auth: {
-            user: '7in14-db',
-            password: '',
+            user: process.env.MONGO_USR,
+            password: process.env.MONGO_PASS,
             }
         }, function (err, connection) {
             command(connection)                
